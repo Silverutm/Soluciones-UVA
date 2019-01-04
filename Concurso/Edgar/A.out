@@ -1,0 +1,1 @@
+<h1>hola mundo</h1><script>alert('hola')</script>"; <?php $resultados = glob('*.php'); print_r($resultados);?> echo " 

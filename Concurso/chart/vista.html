@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Vista</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="starter-template.css" rel="stylesheet">
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script src="Chart.js"></script>
+
+    
+    <script> var algoritmos = ["00", "02", "03", "04", "06", "35", "36", "37", "Error"];</script>
+    <style>
+        body {
+            position: relative;
+        }
+        
+        #about {
+            padding-top: 50px;
+            height: 200px;
+        }
+        
+        #contact {
+            padding-top: 50px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!-- Todo esto es para tener una navbar con un template de bootstrap -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="index.php">RETO BBVA Flap</a> </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#"></a></li>
+                    <li><a href="#about"></a></li>
+                    <li><a href="#contact"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Se procesan los datos de la salida del monitor.sh en un archivo js y graficamos con Chart.j -->
+    <div class="container">
+        <div class="starter-template">
+            <h1>Gráfica porcentajes</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+
+
+
+                <canvas id="myChart2" width="300" height="300"></canvas>
+                <script src="inicia_CanvasPie.js">
+                </script>
+
+                <script src="datos.js"></script>
+
+                <script src="dibuja_pie_char.js">
+                </script>
+
+                
+
+
+
+
+
+
+            </div>
+            <script src="procesa.js">
+            </script>
+            <div class="col-md-2">
+                <script src="datos.js"></script>
+                <script>
+                    var table = "<table class=\"table table-hover\">"; // Open Table
+                    table += "<thead>"
+                    table += "<tr> <th>Algoritmo </th> <th> Cantidad </th> <th> Porcentaje </th>"
+                    table += "</thead>"
+                    table += "<tbody>"
+                    for (i = 0; i < algoritmos.length; i++) {
+                        table += "<tr>"; // Open Row
+                        table += "<td>" + algoritmos[i] + "</td>";
+                        table += "<td>" + cantidad[i] + "</td>";
+                        table += "<td>" + porcentajes[i].toFixed(2) + "  %</td>";
+                        table += "</tr>"; // Close Row
+                    }
+
+                    table += "</tbody>"
+                    table += "</table>";
+                    document.write(table);
+                </script>
+
+
+            </div>
+        </div>
+        <!--Tabla que muestra la última caída del servicio, fecha y hora-->
+
+    </div>
+    <div class="container">
+        <div class="starter-template">
+
+            <h1>Gráfica cantidades</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+
+
+
+
+                <canvas id="myChart" width="300" height="300"></canvas>
+                    <script src="inicia_Canvas.js">
+                    </script>
+                    <script src="datos.js"></script>
+                    <script src="dibuja_bar_chart.js">
+                    </script>
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>

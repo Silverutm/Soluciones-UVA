@@ -1,0 +1,13 @@
+acaatcc
+agcatgc
+abcac
+bcd
+aaa
+aabaaaa
+
+# alias la='ls -A'                              # all but . and ..
+# alias l='ls -CF'                              #
+alias cdc='cd C:\\Users\\Sealtiel'
+alias g='g++ --std=c++11 -o A'
+alias A='./A < A.in > A.out'
+alias p='python'

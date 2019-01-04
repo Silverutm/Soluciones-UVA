@@ -1,0 +1,44 @@
+#include <cstdio>
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#define For(x, a, b) for(int x = a; x < b; x++)
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	int i, j, y, x[102], T, N, t = 0, ans;
+
+	cin >> T;
+
+	while(t++ < T)
+	{
+		cin >> N;
+		For(k, 0, N){
+			cin >> x[k];
+		}
+
+		sort(x, x + N);  // sort x
+
+		i = 0;
+		j = N-1;
+		ans = 0;
+
+		while(j > i){
+			if(x[j] < 50){
+
+				y = ceil(50.0 / (double)x[j]);
+				
+				i = i + y - 1;
+
+			}
+
+			ans++;
+			j--;
+		}
+
+		printf("Case #%d: %d\n", t, ans + (i == 0));
+
+	}
+	return 0;
+}

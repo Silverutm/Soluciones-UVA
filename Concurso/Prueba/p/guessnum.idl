@@ -1,0 +1,10 @@
+interface Main {
+	[NoReturn] int guess(int i);
+	[NoReturn] int adivinar(int i);
+    [NoReturn] void answer(int i);
+    [NoReturn] void responder(int i);
+};
+
+interface guessnum {
+	void eval(int n);
+};

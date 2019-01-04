@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long arr[302];
+long long suma[302];
+queue <long long> cola [302];
+
+void impares() {
+	int x=1;
+	for(int i=1;i<301;i++) {
+		suma[i]=x;
+		x+=2;
+	}
+}
+
+long long total(int N) {
+	long long mini,posi,acum=0;
+	for(int i=1;i<=N;i++) {
+		mini=INT_MAX;
+		for(int l=1;l<=i;l++) {
+			if(!cola[l].empty())
+				if(cola[l].front()<mini) {
+					mini=cola[l].front();
+					posi=l;
+				}
+		}
+		cola[posi].pop();
+		acum+=mini;
+	}
+	return acum;
+}
+
+void limpiar(int N) {
+	for(int i=1;i<=N;i++)
+		while(!cola[i].empty())
+			cola[i].pop();
+}
+
+int main() {
+	impares();
+	int T,N,M;
+	cin>>T;
+	for(int t=1;t<=T;t++) {
+		cout<<"Case #"<<t<<": ";
+		cin>>N>>M;
+		for(int i=1;i<=N;i++) {
+			for(int l=1;l<=M;l++)
+				cin>>arr[l];
+			sort(arr+1,arr+M+1);
+			for(int l=1;l<=M;l++) 
+				cola[i].push(arr[l]+suma[l]);
+		}
+		cout<<total(N)<<"\n";
+		limpiar(N);
+	}
+	return 0;
+}
